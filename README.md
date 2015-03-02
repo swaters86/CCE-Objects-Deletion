@@ -1,6 +1,8 @@
 # CCE-Objects-Deletion
 
-This script was written for NEWSCYCLE Solutions. The purpose of this stored procedure is to give to give NCS Support the ability (and a database job) the ability to target and delete certain CCE Objects based on the following criteria:
+This script was written for NEWSCYCLE Solutions. The purpose of this stored procedure is to give to give NCS Support the ability (and a database job) the ability to target and delete certain CCE Objects. This stored procedure finds the CCE Objects that need to be deleted and passes their ID to a another stored procedure called CCE_DeleteObject (see line 167) which was written by NEWSCYCLE Digital developers. 
+
+ based on the following criteria:
 
 1. Site Code (or multiple site codes by passing in 'XX' instead of a site code.)
 
@@ -35,3 +37,4 @@ exec exec custom.dbo.CCECleanup 'SW', 120, 39, 0
 exec custom.dbo.CCECleanup 'SW', 0, 1, 0
 
 1. This example means the stored procedure will look up objects that are under the SW site and code ones that are 60 days old (The default days lookup value for the stored procedure) because the second parameter is set to 0. Furtheremo, it will target objects that have a module ID of 1 and debug mode is disabled for it. 
+
